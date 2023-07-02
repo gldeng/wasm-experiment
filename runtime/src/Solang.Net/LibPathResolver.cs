@@ -42,7 +42,6 @@ namespace Solang
 
         public static string Resolve(string library)
         {
-            // return "/Users/guanglei/repo/gldeng/wasm-experiment/runtime/src/Solang.Net/native/osx-arm64/libsolang_wrapper.dylib";
             if (Cache.TryGetValue(library, out string result))
             {
                 return result;
