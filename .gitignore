@@ -1,0 +1,6 @@
+wasmer-darwin-arm64*
+wabt-1.0.33
+**/obj
+**/bin
+**/target
+.idea
