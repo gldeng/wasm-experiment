@@ -1,3 +1,3 @@
 ﻿using WasmContract;
 
-Simple.Run();
+Simple.Demo();

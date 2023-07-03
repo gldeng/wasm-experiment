@@ -27,38 +27,6 @@ public class Runtime : IDisposable
         return _linker.Instantiate(_store, _module);
     }
 
-    private void InputFunc(int dataPtr, int dataLenPtr)
-    {
-        WriteBytes(dataPtr, Input);
-        WriteUInt32(dataLenPtr, Convert.ToUInt32(Input.Length));
-    }
-
-    private void ReturnFunc(int flags, int dataPtr, int dataLen)
-    {
-        Console.WriteLine("return called");
-        ReturnBuffer = new byte[dataLen];
-        for (var offset = dataLen - 1; offset >= 0; offset--)
-        {
-            ReturnBuffer[offset] = _memory.ReadByte(dataPtr + offset);
-        }
-
-        Console.WriteLine("return done");
-    }
-
-    private int DebugMessage(int stringPtr, int stringLength)
-    {
-        Console.WriteLine("debug called");
-        return 0;
-    }
-
-    private void ValueTransferred(int valuePtr, int valueLengthPtr)
-    {
-        Console.WriteLine("value_trasnferred called");
-        WriteUInt32(valueLengthPtr, 0);
-
-        Console.WriteLine("value_trasnferred done");
-    }
-
     private void DefineImportFunctions()
     {
         _linker.Define("env", "memory", _memory);
@@ -67,6 +35,37 @@ public class Runtime : IDisposable
         _linker.DefineFunction("seal0", "debug_message", (Func<int, int, int>)DebugMessage);
         _linker.DefineFunction("seal0", "value_transferred", (Action<int, int>)ValueTransferred);
     }
+
+    #region API functions
+
+    private void InputFunc(int dataPtr, int dataLenPtr)
+    {
+        WriteBytes(dataPtr, Input);
+        WriteUInt32(dataLenPtr, Convert.ToUInt32(Input.Length));
+    }
+
+    private void ReturnFunc(int flags, int dataPtr, int dataLen)
+    {
+        ReturnBuffer = new byte[dataLen];
+        for (var offset = dataLen - 1; offset >= 0; offset--)
+        {
+            ReturnBuffer[offset] = _memory.ReadByte(dataPtr + offset);
+        }
+    }
+
+    private int DebugMessage(int stringPtr, int stringLength)
+    {
+        return 0;
+    }
+
+    private void ValueTransferred(int valuePtr, int valueLengthPtr)
+    {
+        WriteUInt32(valueLengthPtr, 0);
+    }
+
+    #endregion
+
+    #region Helper functions
 
     private void WriteBytes(int address, byte[] data)
     {
@@ -86,6 +85,8 @@ public class Runtime : IDisposable
 
         WriteBytes(address, numberInBytes);
     }
+
+    #endregion
 
     void IDisposable.Dispose()
     {
