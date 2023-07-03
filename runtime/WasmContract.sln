@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasmContract", "src\WasmContract\WasmContract.csproj", "{5D416513-2CB1-4DC3-9626-F5DDAECF283F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasmContractTests", "test\WasmContractTests\WasmContractTests.csproj", "{1FE7E71C-4822-4FED-9085-637519AEC8D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasmContractDemo", "src\WasmContractDemo\WasmContractDemo.csproj", "{5D416513-2CB1-4DC3-9626-F5DDAECF283F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solang.Net", "src\Solang.Net\Solang.Net.csproj", "{A0C150C9-DAAD-4FE1-8B27-CEB43FD4D66B}"
 EndProject
@@ -16,10 +14,6 @@ Global
 		{5D416513-2CB1-4DC3-9626-F5DDAECF283F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D416513-2CB1-4DC3-9626-F5DDAECF283F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D416513-2CB1-4DC3-9626-F5DDAECF283F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1FE7E71C-4822-4FED-9085-637519AEC8D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1FE7E71C-4822-4FED-9085-637519AEC8D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1FE7E71C-4822-4FED-9085-637519AEC8D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1FE7E71C-4822-4FED-9085-637519AEC8D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A0C150C9-DAAD-4FE1-8B27-CEB43FD4D66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A0C150C9-DAAD-4FE1-8B27-CEB43FD4D66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C150C9-DAAD-4FE1-8B27-CEB43FD4D66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
